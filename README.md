@@ -24,7 +24,7 @@ graph TD
     G -->|Positive| I[Consolidation / Closing]:::success
     I --> J[Sale Completed]
     J --> K[Repurchase / Referral Pipeline]
-    K -->|Continuous Cycle| J
+    K -->|Continuous Cycle| J  ```
 
 ## 🧠 Architectural Challenges Solved
 
