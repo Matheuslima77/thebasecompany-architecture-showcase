@@ -9,22 +9,22 @@ An Omnichannel CRM tailored for the High-Ticket real estate market. The system i
 
 ```mermaid
 graph TD
-    %% Estilização Minimalista (Garante visibilidade no Dark Mode do GitHub)
+    %% Minimalist Styling
     classDef default fill:#1e1e1e,stroke:#444,stroke-width:1px,color:#fff;
     classDef ia fill:#005bea,stroke:#00c6fb,stroke-width:2px,color:#fff;
     classDef success fill:#00b09b,stroke:#96c93d,stroke-width:2px,color:#fff;
     
-    A[WhatsApp / Instagram Capture] -->|Webhook Orquestrado via n8n| B(Agent Laís: Qualificação Automática):::ia
-    B --> C{Classificação de Intenção}
-    C -->|Lead Qualificado| D[Proposta / Apresentação]
-    C -->|Lead Frio| E[Descarte ou Nutrição]
-    D --> F[Agendamento de Visita]
-    F --> G{Avaliação Pós-Visita}
-    G -->|Negativo| H[Re-qualificação]
-    G -->|Positivo| I[Consolidação / Fechamento]:::success
-    I --> J[Venda Concluída]
-    J --> K[Pipeline de Recompra / Indicação]
-    K -->|Ciclo Contínuo| J
+    A[WhatsApp / Instagram Capture] -->|Webhook via n8n| B(Agent Lais: Auto-Qualification):::ia
+    B --> C{Intent Classification}
+    C -->|Qualified Lead| D[Proposal / Presentation]
+    C -->|Cold Lead| E[Discard or Nurture]
+    D --> F[Visit Scheduling]
+    F --> G{Post-Visit Evaluation}
+    G -->|Negative| H[Re-qualification]
+    G -->|Positive| I[Consolidation / Closing]:::success
+    I --> J[Sale Completed]
+    J --> K[Repurchase / Referral Pipeline]
+    K -->|Continuous Cycle| J
 
 ## 🧠 Architectural Challenges Solved
 
