@@ -1,29 +1,29 @@
 # 🏗️ TheBaseCompany: Architecture Showcase & System Design
 
-> **Disclaimer de Engenharia:** O produto principal da TheBaseCompany é um software proprietário (Closed-Source) em produção. Este repositório é uma vitrine arquitetural contendo *code snippets* isolados, decisões de design de sistema e documentação técnica para fins de portfólio.
+> **Engineering Disclaimer:** The primary product of TheBaseCompany is a proprietary (Closed-Source) software in production. This repository is an architectural showcase containing isolated code snippets, system design decisions, and technical documentation for portfolio purposes.
 
-## 🎯 O Produto
-Um CRM Omnichannel focado no mercado imobiliário *High Ticket*. O sistema integra automação de vendas e atendimento autônomo através de agentes de IA orquestrados via WhatsApp, caindo diretamente em um pipeline Kanban gerencial.
+## 🎯 The Product
+An Omnichannel CRM tailored for the High-Ticket real estate market. The system integrates sales automation and autonomous customer service through AI agents orchestrated via WhatsApp, feeding leads directly into a management Kanban pipeline.
 
-## 🧠 Desafios Arquiteturais Resolvidos
+## 🧠 Architectural Challenges Solved
 
-Ao escalar um ambiente SaaS para o mercado imobiliário, tomei decisões de engenharia focadas em consistência, segurança e resiliência:
+Scaling a SaaS environment for the real estate sector required engineering decisions focused on consistency, security, and resilience:
 
-* **Provisionamento Multi-Tenant Atômico:** Substituição de *Triggers* (Gatilhos) de banco de dados por **RPCs no PostgreSQL (Supabase)**. Implementação de lógicas de `UPSERT` para garantir transações atômicas, eliminando *race conditions* e colisões de IDs na criação simultânea de contas e Workspaces.
-* **Segurança em Nível de Borda (Edge):** Blindagem de rotas ponta a ponta utilizando **Next.js Edge Runtime Middleware**. A validação de sessões e injeção de cabeçalhos de segurança ocorre antes mesmo da requisição atingir o servidor Node.js.
-* **Orquestração de IA e Webhooks:** Integração robusta entre **n8n e OpenAI API** para gerenciar o estado da conversa e garantir o handoff perfeito entre o agente autônomo (Laís) e o Kanban do corretor.
+* **Atomic Multi-Tenant Provisioning:** Replaced database Triggers with **PostgreSQL RPCs (Supabase)**. Implemented strict `UPSERT` logic to guarantee atomic transactions, effectively eliminating race conditions and ID collisions during simultaneous Account and Workspace creation.
+* **Edge-Level Security:** End-to-end route shielding using **Next.js Edge Runtime Middleware**. Session validation and security header injection occur before the request even hits the Node.js server.
+* **AI & Webhook Orchestration:** Robust integration between **n8n and the OpenAI API** to manage conversation state, ensuring a seamless handoff between the autonomous agent (Laís) and the broker's Kanban board.
 
-## 🛠️ Stack Tecnológica
+## 🛠️ Tech Stack
 
-* **Frontend:** Next.js (App Router, React 19), Server Components, Server Actions (com Error Boundaries via `useActionState`), Tailwind CSS.
+* **Frontend:** Next.js (App Router, React 19), Server Components, Server Actions (with strict Error Boundaries via `useActionState`), Tailwind CSS.
 * **Backend, Auth & DB:** Supabase (PostgreSQL), Next.js Edge Middleware, Magic Links, Row Level Security (RLS).
-* **Automação & IA:** n8n, OpenAI API (Agentes Autônomos).
-* **DevOps & Infraestrutura:** Docker, VPS Hostinger, Ambiente de Desenvolvimento via Google Antigravity.
+* **Automation & AI:** n8n, OpenAI API (Autonomous Agents).
+* **DevOps & Infrastructure:** Docker, Hostinger VPS, Development Environment via Google Antigravity.
 
-## 📂 Navegação dos Snippets
+## 📂 Snippets Navigation
 
-Na pasta `/code-snippets` deste repositório, você encontrará fragmentos reais do código que demonstram o domínio da stack:
+In the `/code-snippets` folder of this repository, you will find real code fragments demonstrating proficiency across the stack:
 
-1.  [`rpc_create_tenant_and_link.sql`](#) - Lógica de UPSERT e atomicidade no banco.
-2.  [`proxy.ts`](#) - Middleware de segurança no Edge.
-3.  [`tenant_actions.ts`](#) - Mutações seguras no servidor com React 19.
+1.  [`rpc_create_tenant_and_link.sql`](#) - UPSERT logic and database atomicity.
+2.  [`proxy.ts`](#) - Edge security middleware.
+3.  [`tenant_actions.ts`](#) - Secure server mutations with React 19.
