@@ -9,12 +9,12 @@ An Omnichannel CRM tailored for the High-Ticket real estate market. The system i
 
 ```mermaid
 graph TD
-    %% Estilização Minimalista
-    classDef default fill:#1e1e1e,stroke:#333,stroke-width:1px,color:#fff;
+    %% Estilização Minimalista (Garante visibilidade no Dark Mode do GitHub)
+    classDef default fill:#1e1e1e,stroke:#444,stroke-width:1px,color:#fff;
     classDef ia fill:#005bea,stroke:#00c6fb,stroke-width:2px,color:#fff;
     classDef success fill:#00b09b,stroke:#96c93d,stroke-width:2px,color:#fff;
     
-    A[WhatsApp / Instagram] -->|Webhook Orquestrado via n8n| B(Agent Laís: Qualificação Automática):::ia
+    A[WhatsApp / Instagram Capture] -->|Webhook Orquestrado via n8n| B(Agent Laís: Qualificação Automática):::ia
     B --> C{Classificação de Intenção}
     C -->|Lead Qualificado| D[Proposta / Apresentação]
     C -->|Lead Frio| E[Descarte ou Nutrição]
